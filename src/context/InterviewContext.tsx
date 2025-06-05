@@ -36,7 +36,7 @@ interface Response {
   feedback?: string;
 }
 
-const QUESTION_TIME_LIMIT = 120;
+const QUESTION_TIME_LIMIT = 100;
 
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY || '',
@@ -119,7 +119,7 @@ export const InterviewProvider: React.FC<{ children: ReactNode }> = ({
     } catch (error) {
       console.error('OpenAI API Error:', error);
       return {
-        score: 5,
+        score: 0,
         feedback: 'Unable to evaluate response. Default score assigned.',
       };
     }
